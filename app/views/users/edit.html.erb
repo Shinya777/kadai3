@@ -1,0 +1,24 @@
+<body>
+   <div class="container">
+
+     <% if @user.errors.any? %>
+     <%= pluralize(@user.errors.count, "error") %>
+     <% @user.errors.full_messages.each do |message| %>
+     <%= message %><% end %>
+     <% end %>
+    
+
+<h1>User info</h1>
+<%= form_for(@user) do |f| %>
+ <h4>Name<%= f.text_field :name %></h4>
+ 
+ <h4>Image</h4>
+ <%= f.file_field :profile_image %>
+ 
+ <h4>Introduction<%= f.text_area :introduction %></h4>
+
+ <br><%= f.submit 'Update User'%></br>
+ 
+ <% end %>
+ </div>
+</body>
